@@ -1,0 +1,43 @@
+# Example
+
+<div>
+  {{ content }}
+{% if extra_content %}
+  <hr>
+  <div class=extra>{{ extra_content }}</div>
+{% endif %}
+  <hr>
+</div>
+
+==>
+
+Template(
+  Text,
+  Insert(
+    "{{",
+    DirectiveContent,
+    "}}"
+  ),
+  Text,
+  Conditional(
+    ConditionalOpen(
+      "{%",
+      if,
+      DirectiveContent,
+      "%}"
+    ),
+    Text,
+    Insert(
+      "{{",
+      DirectiveContent,
+      "}}"
+    ),
+    Text,
+    ConditionalClose(
+      "{%",
+      endif,
+      "%}"
+    )
+  ),
+  Text
+)

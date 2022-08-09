@@ -1,0 +1,46 @@
+{
+  "name": "lang-mixed",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "test": "mocha test/test.js",
+    "prepare": "rollup -c"
+  },
+  "type": "module",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "exports": {
+    "import": "./dist/index.js",
+    "require": "./dist/index.cjs"
+  },
+  "types": "dist/index.d.ts",
+  "dependencies": {
+    "@codemirror/lang-css": "^6.0.0",
+    "@codemirror/lang-html": "^6.1.0",
+    "@codemirror/language": "^6.0.0",
+    "@codemirror/theme-one-dark": "^6.0.0",
+    "@lezer/highlight": "^1.0.0",
+    "@lezer/html": "^1.0.1",
+    "@lezer/javascript": "^1.0.2",
+    "@lezer/lr": "^1.0.0",
+    "codemirror": "^6.0.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "strip-indent": "^4.0.0"
+  },
+  "devDependencies": {
+    "@lezer/generator": "^1.0.0",
+    "@types/react": "^18.0.15",
+    "@types/react-dom": "^18.0.6",
+    "@vitejs/plugin-react": "^2.0.0",
+    "mocha": "^9.0.1",
+    "rollup": "^2.77.2",
+    "rollup-plugin-dts": "^4.2.2",
+    "rollup-plugin-ts": "^3.0.2",
+    "typescript": "^4.7.4",
+    "vite": "^3.0.0"
+  }
+}
