@@ -4,13 +4,16 @@
 
 directive {
   Insert |
-  Conditional { ConditionalOpen (directive | Text)* ConditionalClose }
+  Conditional { ConditionalOpen (directive | Text)* ConditionalClose } |
+  Style { StyleOpen (directive | Text)* StyleClose }
 }
 
 @skip {space} {
   Insert { "{{" DirectiveContent "}}" }
-  ConditionalOpen { "{%" kw<"if"> DirectiveContent "%}" }
-  ConditionalClose { "{%" kw<"endif"> "%}" }
+  StyleOpen[closedBy=StyleClose] { "{%" kw<"style"> StyleContent "%}" }
+  StyleClose[openedBy=StyleOpen] { "{%" kw<"endstyle"> "%}" }
+  ConditionalOpen[closedBy=ConditionalClose] { "{%" kw<"if"> DirectiveContent "%}" }
+  ConditionalClose[openedBy=ConditionalOpen] { "{%" kw<"endif"> "%}" }
 }
 
 kw<word> { @specialize[@name={word}]<Identifier, word> }
@@ -20,7 +23,8 @@ kw<word> { @specialize[@name={word}]<Identifier, word> }
   Text { ![{] Text? | "{" (@eof | ![%{] Text?) }
   space { @whitespace+ }
   DirectiveContent { ![%}] DirectiveContent? | $[%}] (@eof | ![}] DirectiveContent?) }
-  @precedence { space DirectiveContent }
+  StyleContent { ![%}] StyleContent? | $[%}] (@eof | ![}] StyleContent?) }
+  @precedence { space DirectiveContent StyleContent }
   "{{" "}}" "{%" "%}"
 }
 

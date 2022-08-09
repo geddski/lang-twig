@@ -3,6 +3,7 @@ import {LRLanguage, LanguageSupport, indentNodeProp, foldNodeProp, foldInside} f
 import {parseMixed} from "@lezer/common"
 
 import {htmlLanguage} from "@codemirror/lang-html"
+import {cssLanguage} from "@codemirror/lang-css"
 export {twigHighLightStyle} from './twigStyles';
 
 const mixedTwigParser = twigParser.configure({
@@ -15,10 +16,23 @@ const mixedTwigParser = twigParser.configure({
     }})
   ],
   wrap: parseMixed(node => {
-    return node.type.isTop ? {
+    if (node.type.name === "Style"){
+      return {
+        parser: cssLanguage.parser,
+        overlay: node => node.type.name == "Text"
+      }
+    }
+
+    if (!node.type.isTop){
+      // console.log('returning null', node.name);
+      return null;
+    }
+
+    // console.log('node.name', node.name);
+    return {
       parser: htmlLanguage.parser,
       overlay: node => node.type.name == "Text"
-    } : null
+    }
   })
 })
 
