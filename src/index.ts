@@ -28,7 +28,6 @@ const mixedTwigParser = twigParser.configure({
       return null;
     }
 
-    // console.log('node.name', node.name);
     return {
       parser: htmlLanguage.parser,
       overlay: node => node.type.name == "Text"

@@ -16,7 +16,15 @@ directive {
   ConditionalClose[openedBy=ConditionalOpen] { "{%" kw<"endif"> "%}" }
 }
 
+Comment {
+  "{% comment %}"
+  commentContent*
+  "{% endcomment %}"
+}
+
 kw<word> { @specialize[@name={word}]<Identifier, word> }
+
+@external tokens commentContent from "./tokens.js" { commentContent }
 
 @tokens {
   Identifier { @asciiLetter+ }
@@ -24,8 +32,12 @@ kw<word> { @specialize[@name={word}]<Identifier, word> }
   space { @whitespace+ }
   DirectiveContent { ![%}] DirectiveContent? | $[%}] (@eof | ![}] DirectiveContent?) }
   StyleContent { ![%}] StyleContent? | $[%}] (@eof | ![}] StyleContent?) }
-  @precedence { space DirectiveContent StyleContent }
+  @precedence { space DirectiveContent StyleContent}
   "{{" "}}" "{%" "%}"
 }
 
+@detectDelim
+@skip {
+  Comment
+}
 @external propSource twigHighlight from "./highlight.js"
