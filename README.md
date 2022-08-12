@@ -8,5 +8,3 @@ Example Codemirror extension that uses nested mixed languages.
 3. `yarn install`
 4. `yarn dev`
 5. open browser to [http://localhost:5174/](http://localhost:5174/)
-
-To see the it working without the current `RangeError`, indent the comment in `problematic.twig` file.
