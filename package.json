@@ -21,19 +21,19 @@
   "dependencies": {
     "@codemirror/lang-css": "^6.0.0",
     "@codemirror/lang-html": "^6.1.0",
-    "@codemirror/language": "^6.0.0",
+    "@codemirror/language": "^6.2.1",
     "@codemirror/theme-one-dark": "^6.0.0",
     "@lezer/highlight": "^1.0.0",
     "@lezer/html": "^1.0.1",
     "@lezer/javascript": "^1.0.2",
-    "@lezer/lr": "^1.0.0",
+    "@lezer/lr": "^1.2.2",
     "codemirror": "^6.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "strip-indent": "^4.0.0"
   },
   "devDependencies": {
-    "@lezer/generator": "^1.0.0",
+    "@lezer/generator": "^1.1.1",
     "@types/react": "^18.0.15",
     "@types/react-dom": "^18.0.6",
     "@vitejs/plugin-react": "^2.0.0",
