@@ -73,18 +73,6 @@ describe("mixed language parsing", () => {
     })
   })
 
-  // describe("TEMP", () => {
-  //   it("works", () => {
-  //     const doc = `
-  //     <div>
-  //     </div$[0]>
-  //     `
-  //     checkNodes(doc, {
-  //       0: "CloseTag",
-  //     });
-  //   })
-  // })
-
   describe("Twig and HTML", () => {
     it("parses HTML on it's own", () => {
       const doc = `
