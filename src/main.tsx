@@ -9,8 +9,9 @@ import { oneDark } from "@codemirror/theme-one-dark";
 // @ts-ignore
 import { twig, twigHighLightStyle } from "../dist/index";
 // import example from '../examples/mixed1.twig?raw';
-import example from '../examples/mixed2.twig?raw';
+// import example from '../examples/mixed2.twig?raw';
 // import example from '../examples/mixed3.twig?raw';
+import example from '../examples/stops.twig?raw';
 
 let startingCode = stripIndent(`
   ${example}

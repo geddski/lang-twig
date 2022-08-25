@@ -128,6 +128,162 @@ describe("mixed language parsing", () => {
         6: "CloseTag",
       });
     });
+
+    it("parses short documents", () => {
+      const doc = `
+        <html>
+          <head>
+            <script>
+              // $[0]this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+            </script>
+          </head>
+        </html>
+      `;
+
+      checkNodes(doc, {
+        0: "LineComment"
+      })
+    });
+
+    it("parses long documents", () => {
+      const doc = `
+        <html>
+          <head>
+            <script>
+              // $[0]this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // this is a comment
+              // $[1]this is a comment
+            </script>
+          </head>
+        </html>
+      `;
+
+      checkNodes(doc, {
+        0: "LineComment",
+        1: "LineComment",
+      })
+    });
   });
 
 });
