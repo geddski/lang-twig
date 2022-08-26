@@ -26,7 +26,7 @@
     "@lezer/highlight": "^1.0.0",
     "@lezer/html": "^1.0.1",
     "@lezer/javascript": "^1.0.2",
-    "@lezer/lr": "1.2.2",
+    "@lezer/lr": "^1.2.3",
     "codemirror": "^6.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -42,7 +42,7 @@
     "rollup-plugin-dts": "^4.2.2",
     "rollup-plugin-ts": "^3.0.2",
     "typescript": "^4.7.4",
-    "vite": "^3.0.0",
-    "vitest": "^0.22.0"
+    "vite": "^3.0.9",
+    "vitest": "^0.22.1"
   }
 }
